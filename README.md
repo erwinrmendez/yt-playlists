@@ -7,10 +7,10 @@ This is a project in a series of tools that I am building, whether for daily use
 ## Features
 
 - Requests to YouTube API.
-<!-- - Cache videos into Local Storage. -->
 - Styling using [Tailwind CSS](https://tailwindcss.com/)
+<!-- - Cache videos into Local Storage. -->
 
-You can only watch a demo of the app [here]().
+You can watch a demo of the app [here]().
 
 ## Let's chat!
 
