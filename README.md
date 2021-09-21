@@ -1,6 +1,6 @@
 # YT Playlists Chrome Extension
 
-**YT Playlists** allows for quick access to saved videos.
+**YT Playlists** allows for quick access to playlists from user's YouTube account.
 
 This is a project in a series of tools that I am building, whether for daily use or just for the fun of learning something new.
 
