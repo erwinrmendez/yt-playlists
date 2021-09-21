@@ -8,7 +8,7 @@ This is a project in a series of tools that I am building, whether for daily use
 
 - Requests to YouTube API.
 - Styling using [Tailwind CSS](https://tailwindcss.com/)
-<!-- - Cache videos into Local Storage. -->
+- Caching playlists/videos with Local Storage.
 
 You can watch a demo of the app [here]().
 

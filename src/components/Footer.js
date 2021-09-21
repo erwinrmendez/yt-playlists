@@ -11,7 +11,7 @@ const Footer = () => {
         <p>Created by Erwin Mendez</p>
         <p>2021 &copy; All rights reserved</p>
       </div>
-      <button className="p-1" onClick={handleSignOut}>
+      <button onClick={handleSignOut}>
         <Logout className="w-5 h-5 fill-current text-primary hover:text-primary-light transition" />
       </button>
     </footer>

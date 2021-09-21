@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { getPlaylists } from "../api/youtube";
+import { getPlaylists, getVideos } from "../api/youtube";
 import { AuthContext } from "./AuthContext";
 
 export const PlaylistContext = createContext();
@@ -7,27 +7,40 @@ export const PlaylistContext = createContext();
 const PlaylistContextProvider = ({ children }) => {
   const { isSignedIn } = useContext(AuthContext);
   const [playlists, setPlaylists] = useState([]);
-  // const [videos, setVideos] = useState();
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     isSignedIn && loadPlaylists();
   }, [isSignedIn]);
 
+  // get playlists from local storage or api
   const loadPlaylists = async () => {
-    let items = [];
-    const result = await getPlaylists();
+    const cached = localStorage.getItem("playlists");
 
-    if (result) {
-      result.forEach((element) => {
-        items.push({ id: element.id, title: element.snippet.title });
-      });
+    if (cached) {
+      setPlaylists(JSON.parse(cached));
+    } else {
+      // get from api
+      const result = await getPlaylists();
+      setPlaylists(result);
     }
+  };
 
-    setPlaylists(items);
+  // get videos from local storage or api
+  const loadVideos = async (currentPlaylist) => {
+    const cached = JSON.parse(localStorage.getItem("videos"));
+
+    if (cached && cached.playlistId === currentPlaylist) {
+      setVideos(cached.videos);
+    } else {
+      // get from api
+      const result = await getVideos(currentPlaylist);
+      setVideos(result);
+    }
   };
 
   return (
-    <PlaylistContext.Provider value={{ playlists }}>
+    <PlaylistContext.Provider value={{ playlists, videos, loadVideos }}>
       {children}
     </PlaylistContext.Provider>
   );

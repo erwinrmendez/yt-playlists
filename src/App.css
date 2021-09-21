@@ -13,3 +13,24 @@
   height: 300px;
   @apply container mx-auto max-w-screen-xs bg-gray-base shadow relative;
 }
+
+.list-videos {
+  height: 185px;
+  @apply p-2 overflow-x-hidden overflow-y-auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-light;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-light rounded-sm border border-gray-light;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}

@@ -1,11 +1,27 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PlaylistContext } from "../contexts/PlaylistContext";
 import logo from "./assets/logo.png";
 import { ReactComponent as Search } from "./assets/search.svg";
 
 const Header = () => {
-  const { playlists } = useContext(PlaylistContext);
+  const { playlists, loadVideos } = useContext(PlaylistContext);
   const [currentPlaylist, setCurrentPlaylist] = useState("");
+
+  useEffect(() => {
+    // get initial playlist from local storage
+    const selected = localStorage.getItem("selectedPlaylist");
+    setCurrentPlaylist(selected);
+  }, []);
+
+  useEffect(() => {
+    if (currentPlaylist !== "") {
+      loadVideos(currentPlaylist);
+
+      // save value to local storage
+      localStorage.setItem("selectedPlaylist", currentPlaylist);
+    }
+    // eslint-disable-next-line
+  }, [currentPlaylist]);
 
   return (
     <header className="p-2 border-b border-primary-light flex items-center">
@@ -14,16 +30,16 @@ const Header = () => {
         <input
           type="text"
           placeholder="Search..."
-          className="w-full border border-gray-light rounded py-1 pl-2 pr-5 text-sm"
+          className="w-full border border-gray-light rounded py-1 pl-2 pr-5 text-sm focus:outline-none focus:border-primary"
         />
         <Search className="h-4 w-4 absolute right-0 mr-1 fill-current text-gray-light" />
       </div>
       <select
         name="playlists"
         id="playlistSelector"
-        className="border border-gray-light rounded p-1 text-sm text-gray-base bg-primary cursor-pointer"
+        className="border border-gray-light rounded p-1 text-sm text-gray-base bg-primary cursor-pointer outline-none "
         onChange={(e) => setCurrentPlaylist(e.target.value)}
-        defaultValue=""
+        value={currentPlaylist}
       >
         <option value="" disabled hidden>
           Select Playlist...

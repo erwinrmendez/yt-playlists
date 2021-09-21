@@ -9,8 +9,8 @@ module.exports = {
       },
       gray: {
         base: "#FAFAFA",
-        light: "#C8C8C8",
-        dark: "#A1A1A1",
+        light: "#F2F2F2",
+        dark: "#C1C1C1",
         darker: "#404040",
       },
       error: "#EF4444",
