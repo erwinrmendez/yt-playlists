@@ -14,6 +14,10 @@ This project uses a `REACT_APP_CLIENT_ID` and `REACT_APP_API_KEY` as environment
 
 Here is a demo of the app.
 
+
+https://user-images.githubusercontent.com/17631048/134267356-a442325f-2d93-48a8-bb2c-3cf66fdd09d5.mp4
+
+
 ## Let's chat!
 
 I love learning new stuff, so any comments or suggestions are most welcomed.
