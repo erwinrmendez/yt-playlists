@@ -10,13 +10,12 @@ This is a project in a series of tools that I am building, whether for daily use
 - Styling using [Tailwind CSS](https://tailwindcss.com/)
 - Caching playlists/videos with Local Storage.
 
-This project uses a `REACT_APP_CLIENT_ID` and `REACT_APP_API_KEY` as environment variables. Since I have no intentions of publishing this app, [here](https://developers.google.com/youtube/registering_an_application) is the link with instructions for setting up the credentials to use **OAuth 2.0** and obtaining the **YouTube Data API v3** key.
-
 Here is a demo of the app.
-
 
 https://user-images.githubusercontent.com/17631048/134267356-a442325f-2d93-48a8-bb2c-3cf66fdd09d5.mp4
 
+**Note:**
+This project uses `REACT_APP_CLIENT_ID` and `REACT_APP_API_KEY` as environment variables. Since I have no intentions of publishing this app, [here](https://developers.google.com/youtube/registering_an_application) is the link with instructions for setting up the credentials to use **OAuth 2.0** and obtaining the **YouTube Data API v3** key.
 
 ## Let's chat!
 
