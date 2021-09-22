@@ -14,7 +14,7 @@ const VideoCard = ({ video }) => {
         <img src={video.thumbnail.url} alt={video.title} />
       </div>
       <div className="col-span-3">
-        <h5 className="mb-2 font-bold leading-5">{video.title}</h5>
+        <h6 className="mb-2 text-sm font-bold leading-5">{video.title}</h6>
         <p className="text-xs">{video.channel}</p>
       </div>
     </div>

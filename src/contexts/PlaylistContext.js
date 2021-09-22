@@ -8,6 +8,7 @@ const PlaylistContextProvider = ({ children }) => {
   const { isSignedIn } = useContext(AuthContext);
   const [playlists, setPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     isSignedIn && loadPlaylists();
@@ -39,8 +40,23 @@ const PlaylistContextProvider = ({ children }) => {
     }
   };
 
+  const refreshPlaylists = () => {
+    localStorage.clear();
+    setVideos([]);
+    loadPlaylists();
+  };
+
   return (
-    <PlaylistContext.Provider value={{ playlists, videos, loadVideos }}>
+    <PlaylistContext.Provider
+      value={{
+        playlists,
+        videos,
+        loadVideos,
+        refreshPlaylists,
+        search,
+        setSearch,
+      }}
+    >
       {children}
     </PlaylistContext.Provider>
   );

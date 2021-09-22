@@ -3,12 +3,27 @@ import { PlaylistContext } from "../contexts/PlaylistContext";
 import VideoCard from "./VideoCard";
 
 const List = () => {
-  const { videos } = useContext(PlaylistContext);
+  const { videos, search } = useContext(PlaylistContext);
   const [count, setCount] = useState(videos.length);
 
   useEffect(() => {
     setCount(videos.length);
   }, [videos]);
+
+  useEffect(() => {
+    setCount(filteredVideos().length);
+    // eslint-disable-next-line
+  }, [search]);
+
+  const filteredVideos = () => {
+    const str = search.toLowerCase();
+
+    return videos.filter(
+      (video) =>
+        video.title.toLowerCase().includes(str) ||
+        video.channel.toLowerCase().includes(str)
+    );
+  };
 
   return (
     <div className="list-videos">
@@ -21,7 +36,7 @@ const List = () => {
           <div className="text-xs text-primary-light mb-2 text-right">
             {count === 1 ? "1 video" : count + " videos"}
           </div>
-          {videos.map((video) => (
+          {filteredVideos().map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}
         </>

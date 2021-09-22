@@ -19,6 +19,26 @@
   @apply p-2 overflow-x-hidden overflow-y-auto;
 }
 
+/* preloader */
+.preloader {
+  @apply h-9 w-9 border-4 border-gray-light rounded-full absolute left-0 right-0 mx-auto;
+  margin-top: 30%;
+  border-top-color: theme("colors.primary.DEFAULT");
+  animation: spin 2s linear infinite;
+}
+
+/* tooltip */
+.tooltip::before {
+  @apply bg-gray-light text-primary border border-gray-dark rounded text-xs p-2 absolute top-10;
+  content: attr(data-tooltip);
+  width: fit-content;
+  display: none;
+}
+
+.tooltip:hover::before {
+  display: block;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }

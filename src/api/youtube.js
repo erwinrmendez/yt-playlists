@@ -16,11 +16,16 @@ function getPlaylists() {
         playlists.push({ id: item.id, title: item.snippet.title });
       });
 
+      // sort ASC by title
+      const orderedList = playlists.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+
       // save to local storage
-      localStorage.setItem("playlists", JSON.stringify(playlists));
+      localStorage.setItem("playlists", JSON.stringify(orderedList));
 
       // return value
-      return playlists;
+      return orderedList;
     })
     .catch((err) => {
       console.log("Error retrieving playlists.", err);
